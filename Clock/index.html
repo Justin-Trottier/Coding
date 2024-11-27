@@ -1,25 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Clock App</title>
+    <title>Modern Clock App</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #282c34;
-            color: white;
+            background-color: #f0f0f0;
+            color: #333;
         }
         .clock {
-            font-size: 3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            font-size: 2em;
+            color: #333;
+        }
+        .clock:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .hand {
+            position: absolute;
+            width: 50%;
+            height: 6px;
+            background: #333;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition: transform 0.5s ease-in-out;
+        }
+        .hand.hour {
+            height: 8px;
+            width: 35%;
+        }
+        .hand.minute {
+            height: 6px;
+        }
+        .hand.second {
+            height: 4px;
+            background: #ff5e57;
         }
     </style>
 </head>
 <body>
-    <div class="clock" id="clock"></div>
-    <script src="clock.js"></script>
+    <div class="clock">
+        <div class="hand hour" id="hour-hand"></div>
+        <div class="hand minute" id="minute-hand"></div>
+        <div class="hand second" id="second-hand"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
